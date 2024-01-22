@@ -12,15 +12,15 @@ import { FaRegStar, FaStar } from "react-icons/fa";
 import { HistoricalEventstypes } from "@/types";
 
 const Mainpage = () => {
-  const [activeEvent, setActiveEvent] = useState<HistoricalEventstypes | null>(
+  const [activeEvent, setActiveEvent] = useState<HistoricalEventstypes|null|any>(
     null
   );
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+
   const [favourites, setFavourites] = useState<number[]>(() => {
     return JSON.parse(window.localStorage.getItem("favourites")) || [];
   });
-  //   useEffect(()=>{
-  //     setEventsData(HistoricalEvents)
-  //   },[])
+ 
   const icon: Icon = new Icon({
     iconUrl: "location.svg",
     iconSize: [25, 41], // size of the icon
@@ -50,7 +50,10 @@ const Mainpage = () => {
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
-        {HistoryEvents?.map((events) => (
+        {HistoryEvents?.filter(
+              (event) =>
+                !selectedCategory || event.category === selectedCategory
+            ).map((events) => (
             <>
             
             

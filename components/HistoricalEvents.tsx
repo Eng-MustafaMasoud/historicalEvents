@@ -2,8 +2,9 @@ import { HistoryEvents } from "@/utils/data";
 import { RiSwordLine } from "react-icons/ri";
 import { MdHistoryEdu } from "react-icons/md";
 import { MdSportsScore } from "react-icons/md";
+import { HistoricalEventstypes } from "@/types";
 
-const HistoricalEvents = ({ favourites }) => {
+const HistoricalEvents = ({ favourites }:any) => {
   console.log(favourites);
   return (
     <div className="flex-[1] max-md:mt-16 gap-4  md:border-l-2   flex    border-gray-200 flex-col h-full">
@@ -15,7 +16,7 @@ const HistoricalEvents = ({ favourites }) => {
           ?.map((id: number) => {
             return HistoryEvents.find((event) => event.id === id);
           })
-          .map((e: [""]) => {
+          .map((e:HistoricalEventstypes) => {
             return (
               <div className="flex gap-2 items-center shadow-md shadow-gray-200 p-2 hover:scale-105 hover:shadow-md cursor-pointer">
                 {
