@@ -18,7 +18,7 @@ const HistoricalEvents = ({ favourites }:any) => {
           })
           .map((e:HistoricalEventstypes) => {
             return (
-              <div className="flex gap-2 items-center shadow-md shadow-gray-200 p-2 hover:scale-105 hover:shadow-md cursor-pointer">
+              <div key={e.id} className="flex gap-2 items-center shadow-md shadow-gray-200 p-2 hover:scale-105 hover:shadow-md cursor-pointer">
                 {
                   e.category === "war" ? (
                     <RiSwordLine />
