@@ -18,7 +18,8 @@ const Mainpage = () => {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
 
   const [favourites, setFavourites] = useState<number[]>(() => {
-    return JSON.parse(window.localStorage.getItem("favourites")) || [];
+    const savedFavorites = localStorage.getItem("favourites");
+    return savedFavorites ? JSON.parse(savedFavorites) : [];
   });
  
   const icon: Icon = new Icon({
